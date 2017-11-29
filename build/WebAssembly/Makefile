@@ -51,8 +51,14 @@ MAKELIB = emar crs $@
 OBJ = .o
 LIB = .a
 
+FUNCS = "['_f32_mul', '_f32_add', '_f32_eq', '_f32_to_ui32', '_f32_to_ui64', '_f32_to_i32', '_f32_to_i64', '_f32_to_f64', '_f32_sub', '_f32_div', '_f32_rem', '_f32_le', '_f32_sqrt', '_f32_lt', \
+  '_f64_mul', '_f64_add', '_f64_eq', '_f64_to_ui32', '_f64_to_ui64', '_f64_to_i32', '_f64_to_i64', '_f64_to_f32', '_f64_sub', '_f64_div', '_f64_rem', '_f64_le', '_f64_sqrt', '_f64_lt', \
+  '_ui32_to_f32', '_i32_to_f32', '_ui64_to_f32', '_i64_to_f32', '_ui32_to_f64', '_i32_to_f64', '_i64_to_f64', '_i64_to_f64']"
+
+LINK = emcc -o $@ -s EXPORTED_FUNCTIONS=${FUNCS} -s BINARYEN=1 -s BINARYEN_ROOT="'/usr/local/'" -s SIDE_MODULE=2
+
 .PHONY: all
-all: softfloat$(LIB)
+all: softfloat$(LIB) softfloat.js
 
 OBJS_PRIMITIVES = \
   s_eq128$(OBJ) \
@@ -381,6 +387,10 @@ $(OBJS_SPECIALIZE): %$(OBJ): $(SOURCE_DIR)/$(SPECIALIZE_TYPE)/%.c
 softfloat$(LIB): $(OBJS_ALL)
 	$(DELETE) $@
 	$(MAKELIB) $^
+
+softfloat.js: $(OBJS_ALL)
+	$(DELETE) $@
+	$(LINK) -o softfloat.js $^
 
 .PHONY: clean
 clean:
