@@ -53,6 +53,9 @@ LIB = .a
 
 FUNCS = "['_f32_mul', '_f32_add', '_f32_eq', '_f32_to_ui32', '_f32_to_ui64', '_f32_to_i32', '_f32_to_i64', '_f32_to_f64', '_f32_sub', '_f32_div', '_f32_rem', '_f32_le', '_f32_sqrt', '_f32_lt', \
   '_f64_mul', '_f64_add', '_f64_eq', '_f64_to_ui32', '_f64_to_ui64', '_f64_to_i32', '_f64_to_i64', '_f64_to_f32', '_f64_sub', '_f64_div', '_f64_rem', '_f64_le', '_f64_sqrt', '_f64_lt', \
+  '_f64_min', '_f64_max', '_f32_min', '_f32_max', '_f64_neg', '_f64_abs', '_f32_neg', '_f32_abs', '_f64_ne', '_f64_ge', '_f64_gt', '_f32_ne', '_f32_ge', '_f32_gt', \
+  '_f64_floor', '_f64_ceil', '_f64_trunc', '_f64_nearest', \
+  '_f32_floor', '_f32_ceil', '_f32_trunc', '_f32_nearest', \
   '_ui32_to_f32', '_i32_to_f32', '_ui64_to_f32', '_i64_to_f32', '_ui32_to_f64', '_i32_to_f64', '_i64_to_f64', '_i64_to_f64']"
 
 LINK = emcc -o $@ -s EXPORTED_FUNCTIONS=${FUNCS} -s BINARYEN=1 -s BINARYEN_ROOT="'/usr/local/'" -s SIDE_MODULE=2
@@ -367,6 +370,10 @@ OBJS_OTHERS = \
   f128M_eq_signaling$(OBJ) \
   f128M_le_quiet$(OBJ) \
   f128M_lt_quiet$(OBJ) \
+  f_minmax$(OBJ) \
+  f_absneg$(OBJ) \
+  f_compare$(OBJ) \
+  f_round$(OBJ)
 
 OBJS_ALL = $(OBJS_PRIMITIVES) $(OBJS_SPECIALIZE) $(OBJS_OTHERS)
 
