@@ -1,4 +1,3 @@
-
 #=============================================================================
 #
 # This Makefile is part of the SoftFloat IEEE Floating-Point Arithmetic
@@ -56,7 +55,8 @@ FUNCS = "['_f32_mul', '_f32_add', '_f32_eq', '_f32_to_ui32', '_f32_to_ui64', '_f
   '_f64_min', '_f64_max', '_f32_min', '_f32_max', '_f64_neg', '_f64_abs', '_f32_neg', '_f32_abs', '_f64_ne', '_f64_ge', '_f64_gt', '_f32_ne', '_f32_ge', '_f32_gt', \
   '_f64_floor', '_f64_ceil', '_f64_trunc', '_f64_nearest', \
   '_f32_floor', '_f32_ceil', '_f32_trunc', '_f32_nearest', \
-  '_ui32_to_f32', '_i32_to_f32', '_ui64_to_f32', '_i64_to_f32', '_ui32_to_f64', '_i32_to_f64', '_i64_to_f64', '_i64_to_f64']"
+  '_ui32_to_f32', '_i32_to_f32', '_ui64_to_f32', '_i64_to_f32', \
+  '_ui64_to_f64', '_ui32_to_f64', '_i32_to_f64', '_i64_to_f64', '_i64_to_f64']"
 
 LINK = emcc -o $@ -s EXPORTED_FUNCTIONS=${FUNCS} -s BINARYEN=1 -s BINARYEN_ROOT="'/usr/local/'" -s SIDE_MODULE=2
 
