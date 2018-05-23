@@ -60,5 +60,52 @@ float32_t f32_nearest(float32_t a) {
    return f32_floor(f32_add(a, half));
 }
 
+int_fast32_t f32_trunc_i32(float32_t a) {
+   return f32_to_i32(a, 2, 0);
+}
+
+int_fast32_t f32_trunc_ui32(float32_t a) {
+   return f32_to_ui32(a, 2, 0);
+}
+
+int_fast32_t f64_trunc_i32(float64_t a) {
+   return f64_to_i32(a, 2, 0);
+}
+
+int_fast32_t f64_trunc_ui32(float64_t a) {
+   return f64_to_ui32(a, 2, 0);
+}
+
+
+int_fast64_t f32_trunc_i64(float32_t a) {
+   return f32_to_i64(a, 2, 0);
+}
+
+int_fast64_t f32_trunc_ui64(float32_t a) {
+   return f32_to_ui64(a, 2, 0);
+}
+
+int_fast64_t f64_trunc_i64(float64_t a) {
+   return f64_to_i64(a, 2, 0);
+}
+
+int_fast64_t f64_trunc_ui64(float64_t a) {
+   return f64_to_ui64(a, 2, 0);
+}
+
+float32_t f32_copysign(float32_t a, float32_t b) {
+   union ui32_f32 ua, ub;
+   ua.f = a; ub.f = b;
+   ua.ui = (ua.ui & 0x7fffffff) | (ub.ui & 0x80000000);
+   return ua.f;
+}
+
+float64_t f64_copysign(float64_t a, float64_t b) {
+   union ui64_f64 ua, ub;
+   ua.f = a; ub.f = b;
+   ua.ui = (ua.ui & 0x7fffffffffffffff) | (ub.ui & 0x8000000000000000);
+   return ua.f;
+}
+
 
 

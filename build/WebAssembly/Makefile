@@ -55,6 +55,16 @@ FUNCS = "['_f32_mul', '_f32_add', '_f32_eq', '_f32_to_ui32', '_f32_to_ui64', '_f
   '_f64_min', '_f64_max', '_f32_min', '_f32_max', '_f64_neg', '_f64_abs', '_f32_neg', '_f32_abs', '_f64_ne', '_f64_ge', '_f64_gt', '_f32_ne', '_f32_ge', '_f32_gt', \
   '_f64_floor', '_f64_ceil', '_f64_trunc', '_f64_nearest', \
   '_f32_floor', '_f32_ceil', '_f32_trunc', '_f32_nearest', \
+  '_f32_trunc_i32', \
+  '_f32_trunc_ui32', \
+  '_f64_trunc_i32', \
+  '_f64_trunc_ui32', \
+  '_f32_trunc_i64', \
+  '_f32_trunc_ui64', \
+  '_f64_trunc_i64', \
+  '_f64_trunc_ui64', \
+  '_f64_copysign', \
+  '_f32_copysign', \
   '_ui32_to_f32', '_i32_to_f32', '_ui64_to_f32', '_i64_to_f32', \
   '_ui64_to_f64', '_ui32_to_f64', '_i32_to_f64', '_i64_to_f64', '_i64_to_f64']"
 
