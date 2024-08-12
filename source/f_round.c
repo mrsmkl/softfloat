@@ -68,8 +68,9 @@ int_fast32_t f32_trunc_ui32(float32_t a) {
    return f32_to_ui32(a, 2, 0);
 }
 
+// some probem
 int_fast32_t f64_trunc_i32(float64_t a) {
-   return f64_to_i32(a, 2, 0);
+   return f64_to_i32(a, 1, 0);
 }
 
 int_fast32_t f64_trunc_ui32(float64_t a) {
