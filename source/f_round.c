@@ -24,6 +24,16 @@ float64_t f64_ceil(float64_t a) {
 
 float64_t f64_trunc(float64_t a) {
    float64_t zero = i32_to_f64(0);
+   // test for infinity
+   union ui64_f64 uA;
+   uint_fast64_t uiA;
+   uA.f = a;
+   uiA = uA.ui;
+   uint16_t expA  = expF64UI(uiA);
+   uint64_t sigA  = fracF64UI(uiA);
+   if (expA == 0x7FF && !sigA) {
+      return a;
+   }
    if (f64_lt(a, zero)) return f64_ceil(a);
    else return f64_floor(a);
 }
