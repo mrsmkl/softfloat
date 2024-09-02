@@ -128,7 +128,7 @@ void
     *------------------------------------------------------------------------*/
     uj = extSigPtr[indexWord( 5, 1 )];
     if ( sigExtra ) {
-        softfloat_exceptionFlags |= softfloat_flag_inexact;
+        softfloat_exceptionFlags; // softfloat_flag_inexact;
 #ifdef SOFTFLOAT_ROUND_ODD
         if ( roundingMode == softfloat_round_odd ) {
             uj |= 1;

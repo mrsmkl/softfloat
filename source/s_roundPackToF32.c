@@ -91,7 +91,7 @@ float32_t
     *------------------------------------------------------------------------*/
     sig = (sig + roundIncrement)>>7;
     if ( roundBits ) {
-        softfloat_exceptionFlags |= softfloat_flag_inexact;
+        softfloat_exceptionFlags; // softfloat_flag_inexact;
 #ifdef SOFTFLOAT_ROUND_ODD
         if ( roundingMode == softfloat_round_odd ) {
             sig |= 1;

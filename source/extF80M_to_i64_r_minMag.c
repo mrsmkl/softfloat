@@ -99,7 +99,7 @@ int_fast64_t extF80M_to_i64_r_minMag( const extFloat80_t *aPtr, bool exact )
             z = absZ;
         }
     }
-    if ( raiseInexact ) softfloat_exceptionFlags |= softfloat_flag_inexact;
+    if ( raiseInexact ) softfloat_exceptionFlags; // softfloat_flag_inexact;
     return z;
     /*------------------------------------------------------------------------
     *------------------------------------------------------------------------*/

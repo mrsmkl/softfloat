@@ -57,7 +57,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /*----------------------------------------------------------------------------
 | Software floating-point underflow tininess-detection mode.
 *----------------------------------------------------------------------------*/
-extern THREAD_LOCAL uint_fast8_t softfloat_detectTininess;
+// extern THREAD_LOCAL uint_fast8_t softfloat_detectTininess;
+#define softfloat_detectTininess 1
 enum {
     softfloat_tininess_beforeRounding = 0,
     softfloat_tininess_afterRounding  = 1
@@ -67,7 +68,8 @@ enum {
 | Software floating-point rounding mode.  (Mode "odd" is supported only if
 | SoftFloat is compiled with macro 'SOFTFLOAT_ROUND_ODD' defined.)
 *----------------------------------------------------------------------------*/
-extern THREAD_LOCAL uint_fast8_t softfloat_roundingMode;
+// extern THREAD_LOCAL uint_fast8_t softfloat_roundingMode;
+#define softfloat_roundingMode 0
 enum {
     softfloat_round_near_even   = 0,
     softfloat_round_minMag      = 1,
@@ -243,7 +245,8 @@ bool f64_isSignalingNaN( float64_t );
 | Rounding precision for 80-bit extended double-precision floating-point.
 | Valid values are 32, 64, and 80.
 *----------------------------------------------------------------------------*/
-extern THREAD_LOCAL uint_fast8_t extF80_roundingPrecision;
+// extern THREAD_LOCAL uint_fast8_t extF80_roundingPrecision;
+#define extF80_roundingPrecision 80
 
 /*----------------------------------------------------------------------------
 | 80-bit extended double-precision floating-point operations.

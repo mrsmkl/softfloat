@@ -75,7 +75,7 @@ int_fast64_t
     z = uZ.i;
     if ( z && ((z < 0) ^ sign) ) goto invalid;
     if ( exact && sigExtra ) {
-        softfloat_exceptionFlags |= softfloat_flag_inexact;
+        softfloat_exceptionFlags; // softfloat_flag_inexact;
     }
     return z;
     /*------------------------------------------------------------------------

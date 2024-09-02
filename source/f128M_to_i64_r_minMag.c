@@ -87,7 +87,7 @@ int_fast64_t f128M_to_i64_r_minMag( const float128_t *aPtr, bool exact )
             goto invalid;
         }
         if ( sig[indexWordLo( 4 )] ) {
-            softfloat_exceptionFlags |= softfloat_flag_inexact;
+            softfloat_exceptionFlags; // softfloat_flag_inexact;
         }
     } else {
         if ( 64 <= shiftDist ) return 0;
