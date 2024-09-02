@@ -41,8 +41,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "specialize.h"
 #include "softfloat.h"
 
-extern const uint16_t softfloat_approxRecip_1k0s[];
-extern const uint16_t softfloat_approxRecip_1k1s[];
+extern const uint16_t softfloat_approxRecip_1k0s(int a);
+extern const uint16_t softfloat_approxRecip_1k1s(int a);
 
 float16_t f16_div( float16_t a, float16_t b )
 {
@@ -137,8 +137,8 @@ float16_t f16_div( float16_t a, float16_t b )
         sigA <<= 4;
     }
     index = sigB>>6 & 0xF;
-    r0 = softfloat_approxRecip_1k0s[index]
-             - (((uint_fast32_t) softfloat_approxRecip_1k1s[index]
+    r0 = softfloat_approxRecip_1k0s(index)
+             - (((uint_fast32_t) softfloat_approxRecip_1k1s(index)
                      * (sigB & 0x3F))
                     >>10);
     sigZ = ((uint_fast32_t) sigA * r0)>>16;

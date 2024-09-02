@@ -104,7 +104,7 @@ uint64_t softfloat_shiftRightJam64( uint64_t a, uint_fast32_t dist );
 | into the number of leading 0 bits before the most-significant 1 of that
 | integer.  For integer zero (index 0), the corresponding table element is 8.
 *----------------------------------------------------------------------------*/
-extern const uint_least8_t softfloat_countLeadingZeros8[256];
+uint_least8_t softfloat_countLeadingZeros8(uint8_t a);
 
 #ifndef softfloat_countLeadingZeros16
 /*----------------------------------------------------------------------------
@@ -119,7 +119,7 @@ INLINE uint_fast8_t softfloat_countLeadingZeros16( uint16_t a )
         count = 0;
         a >>= 8;
     }
-    count += softfloat_countLeadingZeros8[a];
+    count += softfloat_countLeadingZeros8(a);
     return count;
 }
 #else
@@ -144,7 +144,7 @@ INLINE uint_fast8_t softfloat_countLeadingZeros32( uint32_t a )
         count += 8;
         a <<= 8;
     }
-    count += softfloat_countLeadingZeros8[a>>24];
+    count += softfloat_countLeadingZeros8(a>>24);
     return count;
 }
 #else
@@ -160,8 +160,8 @@ uint_fast8_t softfloat_countLeadingZeros32( uint32_t a );
 uint_fast8_t softfloat_countLeadingZeros64( uint64_t a );
 #endif
 
-extern const uint16_t softfloat_approxRecip_1k0s[16];
-extern const uint16_t softfloat_approxRecip_1k1s[16];
+extern const uint16_t softfloat_approxRecip_1k0s(int a);
+extern const uint16_t softfloat_approxRecip_1k1s(int a);
 
 #ifndef softfloat_approxRecip32_1
 /*----------------------------------------------------------------------------
@@ -182,8 +182,8 @@ uint32_t softfloat_approxRecip32_1( uint32_t a );
 #endif
 #endif
 
-extern const uint16_t softfloat_approxRecipSqrt_1k0s[16];
-extern const uint16_t softfloat_approxRecipSqrt_1k1s[16];
+extern const uint16_t softfloat_approxRecipSqrt_1k0s(int a);
+extern const uint16_t softfloat_approxRecipSqrt_1k1s(int a);
 
 #ifndef softfloat_approxRecipSqrt32_1
 /*----------------------------------------------------------------------------

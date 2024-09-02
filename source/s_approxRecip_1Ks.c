@@ -38,12 +38,45 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "platform.h"
 #include "primitives.h"
 
-const uint16_t softfloat_approxRecip_1k0s[16] = {
-    0xFFC4, 0xF0BE, 0xE363, 0xD76F, 0xCCAD, 0xC2F0, 0xBA16, 0xB201,
-    0xAA97, 0xA3C6, 0x9D7A, 0x97A6, 0x923C, 0x8D32, 0x887E, 0x8417
-};
-const uint16_t softfloat_approxRecip_1k1s[16] = {
-    0xF0F1, 0xD62C, 0xBFA1, 0xAC77, 0x9C0A, 0x8DDB, 0x8185, 0x76BA,
-    0x6D3B, 0x64D4, 0x5D5C, 0x56B1, 0x50B6, 0x4B55, 0x4679, 0x4211
-};
+const uint16_t softfloat_approxRecip_1k0s(int a) {
+    if (a % 16 == 0) return 0xffc4;
+    if (a % 16 == 1) return 0xf0be;
+    if (a % 16 == 2) return 0xe363;
+    if (a % 16 == 3) return 0xd76f;
+    if (a % 16 == 4) return 0xccad;
+    if (a % 16 == 5) return 0xc2f0;
+    if (a % 16 == 6) return 0xba16;
+    if (a % 16 == 7) return 0xb201;
+    if (a % 16 == 8) return 0xaa97;
+    if (a % 16 == 9) return 0xa3c6;
+    if (a % 16 == 10) return 0x9d7a;
+    if (a % 16 == 11) return 0x97a6;
+    if (a % 16 == 12) return 0x923c;
+    if (a % 16 == 13) return 0x8d32;
+    if (a % 16 == 14) return 0x887e;
+    if (a % 16 == 15) return 0x8417;
+    // 0xFFC4, 0xF0BE, 0xE363, 0xD76F, 0xCCAD, 0xC2F0, 0xBA16, 0xB201, 0xAA97, 0xA3C6, 0x9D7A, 0x97A6, 0x923C, 0x8D32, 0x887E, 0x8417
+}
+
+const uint16_t softfloat_approxRecip_1k1s(int a) {
+    switch (a) {
+        case 0: return 0xf0f1;
+        case 1: return 0xd62c;
+        case 2: return 0xbfa1;
+        case 3: return 0xac77;
+        case 4: return 0x9c0a;
+        case 5: return 0x8ddb;
+        case 6: return 0x8185;
+        case 7: return 0x76ba;
+        case 8: return 0x6d3b;
+        case 9: return 0x64d4;
+        case 10: return 0x5d5c;
+        case 11: return 0x56b1;
+        case 12: return 0x50b6;
+        case 13: return 0x4b55;
+        case 14: return 0x4679;
+        case 15: return 0x4211;
+    }
+    // 0xF0F1, 0xD62C, 0xBFA1, 0xAC77, 0x9C0A, 0x8DDB, 0x8185, 0x76BA, 0x6D3B, 0x64D4, 0x5D5C, 0x56B1, 0x50B6, 0x4B55, 0x4679, 0x4211
+}
 

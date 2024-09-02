@@ -41,8 +41,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "specialize.h"
 #include "softfloat.h"
 
-extern const uint16_t softfloat_approxRecipSqrt_1k0s[];
-extern const uint16_t softfloat_approxRecipSqrt_1k1s[];
+extern const uint16_t softfloat_approxRecipSqrt_1k0s(int a);
+extern const uint16_t softfloat_approxRecipSqrt_1k1s(int a);
 
 float16_t f16_sqrt( float16_t a )
 {
@@ -98,8 +98,8 @@ float16_t f16_sqrt( float16_t a )
     expA &= 1;
     sigA |= 0x0400;
     index = (sigA>>6 & 0xE) + expA;
-    r0 = softfloat_approxRecipSqrt_1k0s[index]
-             - (((uint_fast32_t) softfloat_approxRecipSqrt_1k1s[index]
+    r0 = softfloat_approxRecipSqrt_1k0s(index)
+             - (((uint_fast32_t) softfloat_approxRecipSqrt_1k1s(index)
                      * (sigA & 0x7F))
                     >>11);
     ESqrR0 = ((uint_fast32_t) r0 * r0)>>1;

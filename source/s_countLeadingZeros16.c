@@ -51,7 +51,7 @@ uint_fast8_t softfloat_countLeadingZeros16( uint16_t a )
         count = 0;
         a >>= 8;
     }
-    count += softfloat_countLeadingZeros8[a];
+    count += softfloat_countLeadingZeros8(a);
     return count;
 
 }
