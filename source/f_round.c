@@ -38,36 +38,63 @@ float32_t f32_nearest(float32_t a) {
    return f32_roundToInt(a, softfloat_round_near_even, true);
 }
 
+bool f64_isNaN(float64_t f);
+bool f32_isNaN(float32_t f);
+
 int_fast32_t f32_trunc_i32(float32_t a) {
+   if (f32_isNaN(a)) {
+      __builtin_trap();
+   }
    return f32_to_i32(a, softfloat_round_minMag, true);
 }
 
 int_fast32_t f32_trunc_ui32(float32_t a) {
+   if (f32_isNaN(a)) {
+      __builtin_trap();
+   }
    return f32_to_ui32(a, softfloat_round_minMag, true);
 }
 
 int_fast64_t f32_trunc_i64(float32_t a) {
+   if (f32_isNaN(a)) {
+      __builtin_trap();
+   }
    return f32_to_i64(a, softfloat_round_minMag, true);
 }
 
 int_fast64_t f32_trunc_ui64(float32_t a) {
+   if (f32_isNaN(a)) {
+      __builtin_trap();
+   }
    return f32_to_ui64(a, softfloat_round_minMag, true);
 }
 
 // some probem
 int_fast32_t f64_trunc_i32(float64_t a) {
+   if (f64_isNaN(a)) {
+      __builtin_trap();
+   }
    return f64_to_i32(a, softfloat_round_minMag, true);
 }
 
 int_fast32_t f64_trunc_ui32(float64_t a) {
+   if (f64_isNaN(a)) {
+      __builtin_trap();
+   }
    return f64_to_ui32(a, softfloat_round_minMag, true);
 }
 
 int_fast64_t f64_trunc_i64(float64_t a) {
+   if (f64_isNaN(a)) {
+      __builtin_trap();
+   }
    return f64_to_i64(a, softfloat_round_minMag, true);
 }
 
 int_fast64_t f64_trunc_ui64(float64_t a) {
+   if (f64_isNaN(a)) {
+      __builtin_trap();
+   }
    return f64_to_ui64(a, softfloat_round_minMag, true);
 }
 
