@@ -32,7 +32,7 @@ bool f64_isInfinity(float64_t f) {
 	return fraction == 0;
 }
 
-const uint64_t F64_SIGN_BIT = 1ull << 63;
+// const uint64_t F64_SIGN_BIT = 1ull << 63;
 
 bool f64_isNegative(float64_t f) {
 	return f.v & (1ull << 63);
